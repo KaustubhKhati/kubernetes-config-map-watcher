@@ -17,18 +17,17 @@ async function checkForMemoryPressure(){
 			k8sApi.readNodeStatus(node)
 				.then(response => {
 					const conditions = response.body.status.conditions.filter(condition => {	
-						if(condition.type == 'MemoryPressure' && condition.status == false){
+						
+						if(condition.type == 'MemoryPressure' && condition.status == 'True'){
 							return condition
 						}
 					})
-					if(conditions.length[0]){
+					if(conditions.length > 0){
 						console.log(response.body.metadata.name, conditions[0].status, new Date(), 'Pressure Found')
 					}
-					else{
-						console.log(response.body.metadata.name, 'No Presseure');
-				}
 			});
 		})
+		console.log(`Loop Passed at ${new Date()}`)
 	}
 	catch(error){
 		console.log(error)
