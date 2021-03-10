@@ -1,15 +1,14 @@
 {
-  "name": "memory-pressure-monitor",
+  "name": "kubernetes-configmap-watcher",
   "version": "1.0.0",
   "description": "",
-  "main": "memory-pressure-finder.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@kubernetes/client-node": "^0.14.0",
-    "cron": "^1.8.2"
+    "@kubernetes/client-node": "^0.14.0"
   }
 }
